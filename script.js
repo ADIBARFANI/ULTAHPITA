@@ -3,10 +3,10 @@ function bukaKado() {
     document.getElementById('welcome-page').classList.remove('active');
     document.getElementById('wish-page').classList.add('active');
     
-    // 2. Mainkan musik otomatis saat tombol kado diklik
+    // 2. Mainkan musik lokal otomatis begitu kado diklik
     const musik = document.getElementById('bg-music');
     musik.play().catch(error => {
-        console.log("Autoplay diblokir oleh sistem keamanan browser:", error);
+        console.log("Autoplay diblokir oleh browser:", error);
     });
 
     // 3. Deteksi lagu selesai untuk otomatis berhenti
@@ -25,7 +25,7 @@ function tampilkanPesanAkhir() {
 function hindariTombol() {
     const btnNo = document.getElementById('btn-no');
     
-    // Memberikan koordinat acak agar tombol berpindah tempat
+    // Memberikan koordinat acak agar tombol berpindah tempat pas didekati kursor
     const x = Math.random() * (window.innerWidth < 400 ? 60 : 160) - 60;
     const y = Math.random() * 120 - 60;
     
