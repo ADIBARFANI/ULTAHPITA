@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Nafitaaaa🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-container">
+        <!-- Halaman Utama (Sebelum Diklik) -->
+        <div id="welcome-page" class="page active">
+            <div class="gift-box" onclick="Kado()">🎁</div>
+            <h2>Ada paket misterius buat kamu!</h2>
+            <p>Klik kadonya dong buat buka...</p>
+        </div>
+
+        <!-- Halaman Ucapan (Setelah Diklik) -->
+        <div id="wish-page" class="page">
+            <div class="cake">🎂</div>
+            <h1 class="bounce-text">Selamat Ulang Tahun! 🎉</h1>
+            
+            <div class="foto-frame">
+                <!-- Pastikan file foto-profil.png ada di folder yang sama -->
+                <img src="foto-profil.png" alt="Yang Ulang Tahun" onerror="this.src='https://dicebear.com'">
+            </div>
+
+            <p class="ucapan-lucu">
+                "Selamat bertambah tua! Jatah umur berkurang, tapi tenang aja... beban hidup makin bertambah kok! 🤪 Semoga kerutan wajahmu belum kelihatan ya!"
+            </p>
+
+            <!-- Tombol Interaktif Lucu -->
+            <div class="btn-group">
+                <button class="btn btn-yes" onclick="tampilkanPesanAkhir()">Makasih Banyak! ❤️</button>
+                <button class="btn btn-no" id="btn-no" onmouseover="hindariTombol()" onclick="hindariTombol()">Nggak Mau, Jelek! 😜</button>
+            </div>
+        </div>
+
+        <!-- Halaman Pesan Akhir -->
+        <div id="final-page" class="page">
+            <h2>Yeeayy! 🥳</h2>
+            <p>Traktirannya ditunggu ya bos. Jangan pura-pura amnesia pas ditagih! 💸</p>
+            <div class="confetti-effect">🎉✨🎈🍿</div>
+        </div>
+    </div>
+
+    <!-- Elemen Audio untuk Musik Instrumental -->
+    <audio id="bg-music" src="https://mixkit.co" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
