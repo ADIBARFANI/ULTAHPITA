@@ -22,6 +22,11 @@ function tampilkanPesanAkhir() {
     document.getElementById('final-page').classList.add('active');
 }
 
+function tampilkanHalamanRahasia() {
+    document.getElementById('final-page').classList.remove('active');
+    document.getElementById('secret-page').classList.add('active');
+}
+
 function hindariTombol() {
     const btnNo = document.getElementById('btn-no');
     
