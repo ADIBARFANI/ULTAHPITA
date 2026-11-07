@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #4a4a4a;
+}
+
+.card-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.page.active {
+    display: block;
+}
+
+.gift-box {
+    font-size: 80px;
+    cursor: pointer;
+    animation: shake 0.5s infinite alternate;
+}
+
+.cake {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.bounce-text {
+    color: #ff6b6b;
+    font-size: 24px;
+    margin-bottom: 15px;
+    animation: bounce 1s infinite alternate;
+}
+
+.foto-frame img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #ffde6a;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.ucapan-lucu {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #fff5f5;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #ff6b6b;
+}
+
+.btn-group {
+    margin-top: 20px;
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-yes {
+    background-color: #4cd137;
+    color: white;
+}
+
+.btn-no {
+    background-color: #ff4757;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(10px);
+}
+
+.confetti-effect {
+    font-size: 40px;
+    margin-top: 20px;
+    animation: spin 2s linear infinite;
+}
+
+/* --- Animasi --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
