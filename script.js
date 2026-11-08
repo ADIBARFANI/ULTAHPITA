@@ -1,6 +1,7 @@
-// 1. LOGIKA TOMBOL PERAYAAN & EFEK CONFETTI
-document.getElementById('btnRayakan').addEventListener('click', function() {
-    // Jalankan efek ledakan kembang api confetti dari kiri & kanan bawah (durasi 4 detik)
+document.getElementById('btnRayakan').addEventListener('click', function(e) {
+    e.preventDefault(); 
+
+    // 1. EFEK LEDAKAN CONFETTI GANDA (Durasi 4 Detik)
     const duration = 4 * 1000;
     const end = Date.now() + duration;
 
@@ -24,26 +25,11 @@ document.getElementById('btnRayakan').addEventListener('click', function() {
         }
     }());
 
-    // Pemutaran musik box secara aman (tidak akan mengunci jalannya tombol jika file hilang)
+    // 2. PEMUTARAN MUSIK KOTAK MUSIK SECARA AMAN
     const musik = document.getElementById('bgMusic');
     if (musik && musik.paused) {
         musik.play().catch(function(error) {
-            console.log("Audio otomatis diblokir browser atau file .mp3 tidak ditemukan di local.");
+            console.log("Musik otomatis diblokir browser atau file tidak ditemukan, efek confetti tetap aman berjalan.");
         });
-    }
-});
-
-
-// 2. KODE LOGIKA SEARCH ASLI (DIPERTAHANKAN UTUH)
-// Tuliskan kembali fungsi manipulasi array / pencarian data bawaan Anda di bawah sini:
-document.getElementById('searchInput').addEventListener('input', function(e) {
-    const keyword = e.target.value.toLowerCase();
-    const resultDiv = document.getElementById('searchResult');
-    
-    // Contoh visual jalannya pencarian asli Anda
-    if(keyword === "") {
-        resultDiv.innerHTML = "";
-    } else {
-        resultDiv.innerHTML = `<p style="color: #6b7280;">Mencari: <strong>${keyword}</strong>...</p>`;
     }
 });
