@@ -3,60 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Nafitaaa </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Selamat Ulang Tahun Pita!</title>
+    <style>
+        /* Mengubah latar belakang website menjadi warna biru muda */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f2fe; /* Warna biru muda yang lembut (sky blue) */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e3a8a; /* Warna teks biru tua agar kontras dan mudah dibaca */
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); /* Kotak putih transparan */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background-color: #3b82f6; /* Tombol biru cerah */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+            transition: all 0.2s ease;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <div class="card-container">
-        <!-- Halaman Utama (Sebelum Diklik) -->
-        <div id="welcome-page" class="page active">
-            <div class="gift-box" onclick="bukaKado()">🎁</div>
-            <h2>ada kotak misterius</h2>
-            <p>Klik buat bukaa</p>
-        </div>
 
-        <!-- Halaman Ucapan (Setelah Diklik) -->
-        <div id="wish-page" class="page">
-            <div class="cake">🎂</div>
-            <h1 class="bounce-text">Selamat Ulang Tahun, Nafita imuutt! 🎉</h1>
-            
-            <div class="foto-frame">
-                <!-- Memanggil file foto lokal kamu -->
-                <img src="Screenshot 2026-11-07 084134.png" alt="Foto Pita">
-            </div>
-
-            <p class="ucapan-lucu">
-                "Ih tambah tua dia, Jatah umur berkurang, tapi tenang... beban hidup makin bertambah kok! 🤪 Semoga mukanya selalu keliatan imup terus!"
-            </p>
-
-            <!-- Tombol Interaktif Lucu -->
-            <div class="btn-group">
-                <button class="btn btn-yes" onclick="tampilkanPesanAkhir()">Y, mksh ❤️</button>
-                <button class="btn btn-no" id="btn-no" onmouseover="hindariTombol()" onclick="hindariTombol()">Nggak mau ah, lu jelek! 😜</button>
-            </div>
-        </div>
-
-        <!-- Halaman Pesan Akhir -->
-        <div id="final-page" class="page">
-            <h2>Yeeayy! 🥳</h2>
-            <p>Semoga keberkahan, kebaikan dan kesenangan selalu membersamaimu! (maaf kasih kadona telat hehe)</p>
-            <div class="confetti-effect">🎉✨🎈🍿</div>
-            <button class="btn btn-next" onclick="tampilkanHalamanRahasia()" style="margin-top: 20px;">Klik Ini Dong! 🤫</button>
-        </div>
-
-        <!-- Halaman Keempat: Halaman Baru (Pesan Khusus) -->
-        <div id="secret-page" class="page">
-            <h2>Last but not least... 💖</h2>
-            <p class="pesan-serius">
-                "Bercandanya udah selesai, ini beneran. Selamat ulang tahun ya, Pita! Semoga apa yang kamu semogakan di tahun ini cepat terwujud. Tetap jadi orang baik dan selalu bahagia ya! Amin. ✨"
-            </p>
-            <div class="heart-icon">💖✨</div>
-        </div>
+    <div class="container">
+        <h1>Selamat Ulang Tahun Pita! 🎂🎉</h1>
+        <p>Klik tombol di bawah untuk merayakan hari spesialmu!</p>
+        
+        <!-- Tombol Utama -->
+        <button id="btnRayakan">Rayakan! 🎈</button>
     </div>
 
-    <!-- Elemen Audio Lokal (Membaca file musik.mp3 yang sudah kamu download) -->
-    <audio id="bg-music" src="scottishperson-sound-effect-happy-birthday-music-box-333245.mp3" preload="auto"></audio>
+    <!-- Audio Musik Box Selamat Ulang Tahun bawaan file Anda -->
+    <audio id="bgMusic" src="scottishperson-sound-effect-happy-birthday-music-box-333245.mp3" preload="auto"></audio>
 
-    <script src="script.js"></script>
+    <!-- 1. Memanggil script pihak ketiga untuk efek Confetti via CDN -->
+    <script src="https://jsdelivr.net"></script>
+
+    <!-- 2. Logika JavaScript untuk memutar musik dan memicu kembang api confetti -->
+    <script>
+        const tombol = document.getElementById('btnRayakan');
+        const musik = document.getElementById('bgMusic');
+
+        tombol.addEventListener('click', () => {
+            // A. Mainkan musik ulang tahun jika belum berputar
+            if (musik.paused) {
+                musik.play().catch(error => {
+                    console.log("Audio gagal diputar otomatis karena kebijakan browser:", error);
+                });
+            }
+
+            // B. Jalankan efek ledakan kembang api confetti berulang-ulang selama 4 detik
+            const duration = 4 * 1000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                // Ledakan dari sisi kiri bawah screen
+                confetti({
+                    particleCount: 4,
+                    angle: 60,
+                    spread: 60,
+                    origin: { x: 0, y: 0.8 }
+                });
+                
+                // Ledakan dari sisi kanan bawah screen
+                confetti({
+                    particleCount: 4,
+                    angle: 120,
+                    spread: 60,
+                    origin: { x: 1, y: 0.8 }
+                });
+
+                // Jika durasi 4 detik belum habis, ulangi animasinya secara halus
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        });
+    </script>
 </body>
 </html>
