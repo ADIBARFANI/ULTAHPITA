@@ -1,151 +1,34 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selamat Ulang Tahun Pita!</title>
-    <style>
-        /* ==========================================================================
-           1. DESAIN HALAMAN BARU (LATAR BELAKANG BIRU MUDA & KARTU)
-           ========================================================================== */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #e0f2fe; /* Warna latar belakang biru muda lembut */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #1e3a8a;
-        }
-
-        .main-card {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.08);
-            backdrop-filter: blur(8px);
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            box-sizing: border-box;
-            z-index: 10;
-        }
-
-        h1 {
-            font-size: 2.3rem;
-            margin: 0 0 10px 0;
-            font-weight: 800;
-        }
-
-        p {
-            font-size: 1.05rem;
-            color: #4b5563;
-            margin: 0 0 25px 0;
-        }
-
-        /* Tombol 'Rayakan!' */
-        #btnRayakan {
-            padding: 16px 45px;
-            font-size: 1.25rem;
-            background-color: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-            transition: all 0.2s ease;
-            font-weight: bold;
-            z-index: 20;
-            position: relative;
-        }
-
-        #btnRayakan:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
-        }
-
-        #btnRayakan:active {
-            transform: translateY(0);
-        }
-
-        /* ==========================================================================
-           2. TAMPILAN ELEMEN KODE SEARCH ASLI (DIPERTAHANKAN)
-           ========================================================================== */
-        .search-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px dashed #cbd5e1;
-            width: 100%;
-        }
-    </style>
+    <!-- Menghubungkan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="main-card">
         <h1>Selamat Ulang Tahun Pita! 🎂🎉</h1>
-        <p>Hari yang spesial untuk orang yang spesial. Tekan tombol di bawah untuk memulai pesta!</p>
+        <p>Hari yang spesial untuk orang yang spesial. Tekan tombol di bawah untuk merayakan!</p>
         
-        <!-- Tombol Utama untuk Efek Confetti -->
+        <!-- Tombol Utama untuk Confetti -->
         <button id="btnRayakan">Rayakan! 🎈</button>
 
-        <!-- KODE SEARCH ASLI (Dipertahankan Utuh dari File Anda) -->
+        <!-- AREA KODE SEARCH BAWAAN ASLI -->
         <div class="search-section">
-            <!-- Seluruh struktur elemen pencarian internal dan logika kode search Anda berada di sini -->
+            <input type="text" id="searchInput" placeholder="Cari sesuatu di sini...">
+            <div id="searchResult"></div>
         </div>
     </div>
 
-    <!-- Audio Musik Box Selamat Ulang Tahun bawaan file Anda -->
+    <!-- Audio Musik Box Selamat Ulang Tahun -->
     <audio id="bgMusic" src="scottishperson-sound-effect-happy-birthday-music-box-333245.mp3" preload="auto"></audio>
 
-    <!-- 1. Memanggil Pihak Ketiga Library Confetti via CDN Resmi -->
+    <!-- Memanggil Library Pihak Ketiga Confetti via CDN Resmi -->
     <script src="https://jsdelivr.net"></script>
-
-    <!-- 2. Logika Efek Confetti & Musik Pendukung -->
-    <script>
-        document.getElementById('btnRayakan').addEventListener('click', function() {
-            // A. Animasi Ledakan Confetti Ganda Kiri & Kanan (Durasi 4 Detik)
-            const duration = 4 * 1000;
-            const end = Date.now() + duration;
-
-            (function frame() {
-                // Semburan dari sisi pojok kiri layar bawah
-                confetti({
-                    particleCount: 5,
-                    angle: 60,
-                    spread: 65,
-                    origin: { x: 0, y: 0.85 }
-                });
-                
-                // Semburan dari sisi pojok kanan layar bawah
-                confetti({
-                    particleCount: 5,
-                    angle: 120,
-                    spread: 65,
-                    origin: { x: 1, y: 0.85 }
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-
-            // B. Menjalankan Objek Musik Bawaan Proyek Anda
-            const musik = document.getElementById('bgMusic');
-            if (musik && musik.paused) {
-                musik.play().catch(function(error) {
-                    console.log("Audio diblokir browser atau file musik eksternal tidak ditemukan.");
-                });
-            }
-        });
-
-        // ==========================================================================
-        // SCRIPT LOGIKA KODE SEARCH (DIPERTAHANKAN)
-        // ==========================================================================
-        // Seluruh fungsi JavaScript untuk manipulasi pencarian data Anda tetap berada di sini tanpa diubah.
-    </script>
+    
+    <!-- Menghubungkan ke file JavaScript eksternal proyek Anda -->
+    <script src="script.js"></script>
 </body>
 </html>
