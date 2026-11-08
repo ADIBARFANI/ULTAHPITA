@@ -3,26 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Pita!</title>
-    <!-- Menghubungkan ke file CSS eksternal -->
+    <title>HBD Ulang Tahun PITA! 🎂</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-card">
-        <h1>Selamat Ulang Tahun Pita! 🎂🎉</h1>
-        <p>Hari yang spesial untuk orang yang spesial. Tekan tombol di bawah untuk merayakan!</p>
-        
-        <!-- Tombol Utama Perayaan -->
-        <button id="btnRayakan">Rayakan! 🎈</button>
+    <div class="card-container">
+        <!-- Halaman Kesatu: Utama (Sebelum Diklik) -->
+        <div id="welcome-page" class="page active">
+            <div class="gift-box" onclick="bukaKado()">🎁</div>
+            <h2>Ada paket misterius buat Pita!</h2>
+            <p>Klik kadonya dong buat buka...</p>
+        </div>
+
+        <!-- Halaman Kedua: Ucapan Lucu (Setelah Diklik) -->
+        <div id="wish-page" class="page">
+            <div class="cake">🎂</div>
+            <h1 class="bounce-text">Selamat Ulang Tahun, Pita! 🎉</h1>
+            
+            <div class="foto-frame">
+                <!-- Memanggil file foto lokal kamu -->
+                <img src="foto-saya.jpg" alt="Foto Pita">
+            </div>
+
+            <p class="ucapan-lucu">
+                "Selamat bertambah tua, Pita! Jatah umur berkurang, tapi tenang aja... beban hidup makin bertambah kok! 🤪 Semoga kerutan wajahmu belum kelihatan ya!"
+            </p>
+
+            <!-- Tombol Interaktif Jahil -->
+            <div class="btn-group">
+                <button class="btn btn-yes" onclick="tampilkanPesanAkhir()">Makasih Banyak! ❤️</button>
+                <button class="btn btn-no" id="btn-no" onmouseover="hindariTombol()" onclick="hindariTombol()">Nggak Mau, Jelek! 😜</button>
+            </div>
+        </div>
+
+        <!-- Halaman Ketiga: Tagih Traktiran -->
+        <div id="final-page" class="page">
+            <h2>Yeeayy! 🥳</h2>
+            <p>Traktirannya ditunggu ya Pita. Jangan pura-pura amnesia pas ditagih! 💸</p>
+            <div class="confetti-effect">🎉✨🎈🍿</div>
+            
+            <!-- Tombol baru untuk lanjut ke halaman keempat (Pesan Rahasia) -->
+            <button class="btn btn-next" onclick="tampilkanHalamanRahasia()" style="margin-top: 20px;">Klik Ini Dong! 🤫</button>
+        </div>
+
+        <!-- Halaman Keempat: Pesan Serius & Doa Penutup -->
+        <div id="secret-page" class="page">
+            <h2>Last but not least... 💖</h2>
+            <p class="pesan-serius">
+                "Bercandanya udah selesai, ini beneran. Selamat ulang tahun ya, Pita! Semoga apa yang kamu semogakan di tahun ini cepat terwujud. Tetap jadi orang baik dan selalu bahagia ya! Amin. ✨"
+            </p>
+            <div class="heart-icon">💖✨</div>
+        </div>
     </div>
 
-    <!-- Audio Musik Box Selamat Ulang Tahun -->
-    <audio id="bgMusic" src="scottishperson-sound-effect-happy-birthday-music-box-333245.mp3" preload="auto"></audio>
+    <!-- Elemen Audio Lokal (Membaca file musik.mp3 yang sudah kamu download) -->
+    <audio id="bg-music" src="musik.mp3" preload="auto"></audio>
 
-    <!-- Library Confetti via CDN Resmi -->
-    <script src="https://jsdelivr.net"></script>
-    
-    <!-- Menghubungkan ke file JavaScript eksternal -->
     <script src="script.js"></script>
 </body>
 </html>
